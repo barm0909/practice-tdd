@@ -5,6 +5,8 @@ namespace Tests\Money;
 use App\Money\Dollar;
 use Tests\TestCase;
 
+use function PHPUnit\Framework\assertTrue;
+
 class DollarTest extends TestCase
 {
     /** @test */
@@ -15,5 +17,11 @@ class DollarTest extends TestCase
         $this->assertEquals(10, $product->amount);
         $product = $dollar->times(3);
         $this->assertEquals(15, $product->amount);
+    }
+
+    /** @test */
+    public function testEquality()
+    {
+        assertTrue(new Dollar(5)->eqauls(new Dollar(5)));
     }
 }
