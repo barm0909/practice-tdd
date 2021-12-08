@@ -11,7 +11,9 @@ class DollarTest extends TestCase
     public function testMultiplication()
     {
         $dollar = new Dollar(5);
-        $dollar->times(2);
-        $this->assertEquals(10, $dollar->amount);
+        $product =  $dollar->times(2);
+        $this->assertEquals(10, $product->amount);
+        $product = $dollar->times(3);
+        $this->assertEquals(15, $product->amount);
     }
 }
