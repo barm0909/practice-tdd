@@ -22,6 +22,6 @@ class DollarTest extends TestCase
     /** @test */
     public function testEquality()
     {
-        assertTrue((new Dollar(5))->equals(new Dollar(5)));
+        $this->assertTrue((new Dollar(5))->equals(new Dollar(5)));
     }
 }
