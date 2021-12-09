@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 use function PHPUnit\Framework\assertTrue;
 
-class DollarTest extends TestCase
+class MoneyTest extends TestCase
 {
     /** @test */
     public function testMultiplication()
@@ -22,5 +22,13 @@ class DollarTest extends TestCase
     {
         $this->assertTrue((new Dollar(5))->equals(new Dollar(5)));
         $this->assertFalse((new Dollar(5))->equals(new Dollar(6)));
+    }
+
+    /** @test */
+    public function testFrancMultiplication()
+    {
+        $franc = new Franc(5);
+        $this->assertEquals(new Dollar(10), $franc->times(2));
+        $this->assertEquals(new Dollar(15), $franc->times(3));
     }
 }
