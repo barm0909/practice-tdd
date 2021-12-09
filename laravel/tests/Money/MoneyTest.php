@@ -3,6 +3,7 @@
 namespace Tests\Money;
 
 use App\Money\Dollar;
+use App\Money\Franc;
 use Tests\TestCase;
 
 use function PHPUnit\Framework\assertTrue;
@@ -28,7 +29,7 @@ class MoneyTest extends TestCase
     public function testFrancMultiplication()
     {
         $franc = new Franc(5);
-        $this->assertEquals(new Dollar(10), $franc->times(2));
-        $this->assertEquals(new Dollar(15), $franc->times(3));
+        $this->assertEquals(new Franc(10), $franc->times(2));
+        $this->assertEquals(new Franc(15), $franc->times(3));
     }
 }
