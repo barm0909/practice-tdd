@@ -17,3 +17,4 @@
 - [] timesの一般化
 - [x] FrancとDollarの比較
 - [] 通貨の概念
+- [] testFrancMultiplicationを削除する？
