@@ -17,7 +17,7 @@ abstract class Money
         return $this->amount === $money->amount && get_class($this) === get_class($money);
     }
 
-    public static function dollar(int $amount): Dollar
+    public static function dollar(int $amount): Money
     {
         return new Dollar($amount);
     }
