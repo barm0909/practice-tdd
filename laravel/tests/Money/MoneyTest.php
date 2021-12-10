@@ -4,6 +4,7 @@ namespace Tests\Money;
 
 use App\Money\Dollar;
 use App\Money\Franc;
+use phpDocumentor\Reflection\Types\This;
 use Tests\TestCase;
 
 use function PHPUnit\Framework\assertTrue;
@@ -25,6 +26,7 @@ class MoneyTest extends TestCase
         $this->assertFalse((new Dollar(5))->equals(new Dollar(6)));
         $this->assertTrue((new Franc(5))->equals(new Franc(5)));
         $this->assertFalse((new Franc(5))->equals(new Franc(6)));
+        $this->assertFalse((new Franc(5))->equals(new Dollar(5)));
     }
 
     /** @test */
