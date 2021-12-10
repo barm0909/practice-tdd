@@ -4,6 +4,7 @@ namespace Tests\Money;
 
 use App\Money\Dollar;
 use App\Money\Franc;
+use App\Money\Money;
 use phpDocumentor\Reflection\Types\This;
 use Tests\TestCase;
 
@@ -14,9 +15,9 @@ class MoneyTest extends TestCase
     /** @test */
     public function testMultiplication()
     {
-        $dollar = new Dollar(5);
-        $this->assertEquals(new Dollar(10), $dollar->times(2));
-        $this->assertEquals(new Dollar(15), $dollar->times(3));
+        $money = Money::dollar(5);
+        $this->assertEquals(new Dollar(10), $money->times(2));
+        $this->assertEquals(new Dollar(15), $money->times(3));
     }
 
     /** @test */
