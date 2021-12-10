@@ -2,6 +2,8 @@
 
 namespace App\Money;
 
+use Illuminate\Validation\Rules\In;
+
 abstract class Money
 {
     protected $amount;
@@ -20,5 +22,10 @@ abstract class Money
     public static function dollar(int $amount): Money
     {
         return new Dollar($amount);
+    }
+
+    public static function franc(int $amount): Money
+    {
+        return new  Franc($amount);
     }
 }
