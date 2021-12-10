@@ -15,3 +15,4 @@
 - [] DollarとFrancの重複
 - [] equalsの一般化
 - [] timesの一般化
+- [] FrancとDollarの比較
