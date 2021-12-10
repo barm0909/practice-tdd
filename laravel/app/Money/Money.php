@@ -2,9 +2,10 @@
 
 namespace App\Money;
 
-class Money
+abstract class Money
 {
     protected $amount;
+    abstract function times(int $multiplier): Money;
 
     public function __construct(int $amount)
     {
