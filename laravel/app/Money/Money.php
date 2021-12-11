@@ -8,6 +8,7 @@ abstract class Money
 {
     protected $amount;
     abstract function times(int $multiplier): Money;
+    abstract function currency(): string;
 
     public function __construct(int $amount)
     {
