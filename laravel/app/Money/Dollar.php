@@ -4,9 +4,9 @@ namespace App\Money;
 
 class Dollar extends Money
 {
-    public function __construct()
+    public function __construct(int $amount, string $currency)
     {
-        parent::__construct($amount, $);
+        parent::__construct($amount, $currency);
     }
 
     public function times(int $multiplier): Money
