@@ -4,13 +4,13 @@ namespace App\Money;
 
 class Dollar extends Money
 {
-    public function times(int $multiplier): Money
+    public function __construct()
     {
-        return new Dollar($this->amount * $multiplier);
+        parent::__construct($amount, $);
     }
 
-    public function currency(): string
+    public function times(int $multiplier): Money
     {
-        return "USD";
+        return new Dollar($this->amount * $multiplier, $this->currency);
     }
 }

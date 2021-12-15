@@ -4,13 +4,14 @@ namespace App\Money;
 
 class Franc extends Money
 {
-    public function times(int $multiplier): Money
+    public function __construct(int $amount, string $currency)
     {
-        return new Franc($this->amount * $multiplier);
+        $this->amount = $amount;
+        $this->currency = $currency;
     }
 
-    public function currency(): string
+    public function times(int $multiplier): Money
     {
-        return "CHF";
+        return new Franc($this->amount * $multiplier, $this->currency);
     }
 }
