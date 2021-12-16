@@ -17,6 +17,11 @@ class Money
     {
         return new Money($this->amount * $multiplier, $this->currency);
     }
+
+    public function plus(Money $addend): Money
+    {
+        return new Money($this->amount + $addend->amount, $this->currency);
+    }
     
     public function equals(Money $money): bool
     {
