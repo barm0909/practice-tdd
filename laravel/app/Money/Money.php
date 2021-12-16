@@ -2,23 +2,30 @@
 
 namespace App\Money;
 
-use Illuminate\Validation\Rules\In;
-
-abstract class Money
+class Money
 {
     protected $amount;
     protected $currency;
-    abstract function times(int $multiplier): Money;
-
-    protected function __construct(int $ammout, string $currency)
+    
+    public function __construct(int $ammout, string $currency)
     {
         $this->amount = $ammout;
         $this->currency = $currency;
     }
 
+    function times(int $multiplier): Money
+    {
+        return null;
+    }
+    
     public function equals(Money $money): bool
     {
-        return $this->amount === $money->amount && get_class($this) === get_class($money);
+        return $this->amount === $money->amount && $this->currency === $money->currency;
+    }
+
+    public function __toString()
+    {
+        return $this->amount . " " . $this->currency;
     }
 
     public static function dollar(int $amount): Money
