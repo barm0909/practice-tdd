@@ -2,6 +2,7 @@
 
 namespace Tests\Money;
 
+use App\Money\Bank;
 use App\Money\Dollar;
 use App\Money\Franc;
 use App\Money\Money;
