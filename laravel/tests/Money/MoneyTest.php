@@ -4,6 +4,7 @@ namespace Tests\Money;
 
 use App\Money\Bank;
 use App\Money\Dollar;
+use App\Money\Expression;
 use App\Money\Franc;
 use App\Money\Money;
 use phpDocumentor\Reflection\Types\This;
@@ -44,5 +45,15 @@ class MoneyTest extends TestCase
         $bank = new Bank();
         $reduced = $bank->reduce($sum, "USD");
         $this->assertEquals(Money::dollar(10), $reduced);
+    }
+
+    /** @test */
+    public function testPlusRetrunSum()
+    {
+        $five = Money::dollar(5);
+        $result = $five->plus($five);
+        $sum = $result;
+        $this->assertEquals($five, $sum->augend);
+        $this->assertEquals($five, $sum->addend);
     }
 }
