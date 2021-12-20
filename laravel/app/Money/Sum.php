@@ -4,8 +4,8 @@ namespace App\Money;
 
 class Sum implements Expression
 {
-    private Money $augend;
-    private Money $addend;
+    public Money $augend;
+    public Money $addend;
 
     public function __construct(Money $augend, Money $addend)
     {
