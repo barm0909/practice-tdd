@@ -7,6 +7,7 @@ use App\Money\Dollar;
 use App\Money\Expression;
 use App\Money\Franc;
 use App\Money\Money;
+use App\Money\Sum;
 use phpDocumentor\Reflection\Types\This;
 use Tests\TestCase;
 
@@ -55,5 +56,14 @@ class MoneyTest extends TestCase
         $sum = $result;
         $this->assertEquals($five, $sum->augend);
         $this->assertEquals($five, $sum->addend);
+    }
+
+    /** @test */
+    public function testReduceSum()
+    {
+        $sum = new Sum(Money::dollar(3), Money::dollar(4));
+        $bank = new Bank();
+        $result = $bank->reduce($sum, "USD");
+        $this->assertEquals(Money::dollar(7), $result);
     }
 }
