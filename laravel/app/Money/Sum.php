@@ -18,4 +18,9 @@ class Sum implements Expression
         $amount = $this->augend->amount() + $this->addend->amount();
         return new Money($amount, $to);
     }
+
+    public function cast(object $object): self
+    {
+        return $object;
+    }
 }
