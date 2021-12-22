@@ -52,4 +52,9 @@ class Money implements Expression
     {
         return $this->amount;
     }
+
+    public function cast(object $object): self
+    {
+        return $object;
+    }
 }
