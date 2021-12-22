@@ -19,3 +19,4 @@
 - [x] FrancとDollarの比較
 - [x] 通貨の概念
 - [] testFrancMultiplicationを削除する？
+- [] Bank.reduce
