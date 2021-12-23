@@ -20,3 +20,5 @@
 - [x] 通貨の概念
 - [] testFrancMultiplicationを削除する？
 - [X] Bank.reduce(Money)
+- [] Moneyを変換して換算を行う
+- [] Reduce(Bank, String)
