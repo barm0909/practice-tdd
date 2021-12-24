@@ -3,7 +3,7 @@
 # 第１部　TODOリスト
 
 - [] $5 +  10 CHF = $10 (レートが2:1の場合)
-- [] $5 + $5 = $10
+- [x] $5 + $5 = $10
 - [x] $5 * 2 = $10
 - [x] amountをprivateにする
 - [x] Dollarの副作用をどうする？
@@ -20,5 +20,5 @@
 - [x] 通貨の概念
 - [] testFrancMultiplicationを削除する？
 - [X] Bank.reduce(Money)
-- [] Moneyを変換して換算を行う
-- [] Reduce(Bank, String)
+- [x] Moneyを変換して換算を行う
+- [x] Reduce(Bank, String)
