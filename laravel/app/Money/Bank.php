@@ -13,7 +13,7 @@ class Bank
 
     public function addRate(string $from, string $to, int $rate)
     {
-        $rates[] = [(new Pair($from, $to))->hashCode() => $rate];
+        $this->rates[] = [(new Pair($from, $to))->hashCode() => $rate];
     }
 
     public function rate(string $from, string $to): int
