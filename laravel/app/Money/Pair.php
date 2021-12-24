@@ -12,4 +12,20 @@ class Pair
         $this->from = $from;
         $this->to = $to;
     }
+
+    public function equals(object $object): bool
+    {
+        $pair = (new Pair($this->from, $this->to))->cast($object);
+        return $this->from === $pair->from && $this->to === $pair->to;
+    }
+
+    public function hashCode(): int
+    {
+        return 0;
+    }
+
+    public function cast(object $object): self
+    {
+        return $object;
+    }
 }
