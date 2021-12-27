@@ -13,6 +13,11 @@ class Sum implements Expression
         $this->addend = $addend;
     }
 
+    public function plus(Expression $addend): Expression
+    {
+        return $this;
+    }
+
     public function reduce(Bank $bank, string $to): Money
     {
         $amount = $this->augend->reduce($bank, $to)->amount() + $this->addend->reduce($bank, $to)->amount();
