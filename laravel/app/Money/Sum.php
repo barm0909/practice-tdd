@@ -23,4 +23,9 @@ class Sum implements Expression
     {
         return $object;
     }
+
+    public function expressionCast(object $object): Expression
+    {
+        return $object;
+    }
 }
