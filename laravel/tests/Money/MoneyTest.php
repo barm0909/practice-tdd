@@ -94,7 +94,9 @@ class MoneyTest extends TestCase
     public function testMixedAddition()
     {
         $five_bucks = Money::dollar(5);
+        $five_bucks = $five_bucks->expressionCast($five_bucks);
         $ten_francs = Money::franc(10);
+        $ten_francs = $ten_francs->expressionCast($ten_francs);
         $bank = new Bank();
         $bank->addRate("CHF", "USD", 2);
         $result = $bank->reduce($five_bucks->plus($ten_francs), "USD");
