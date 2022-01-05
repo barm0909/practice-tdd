@@ -116,4 +116,18 @@ class MoneyTest extends TestCase
         $result = $bank->reduce($sum, "USD");
         $this->assertEquals(Money::dollar(15), $result);
     }
+
+    /** @test */
+    public function testSumTimes()
+    {
+        $five_bucks = Money::dollar(5);
+        $five_bucks = $five_bucks->expressionCast($five_bucks);
+        $ten_francs = Money::franc(10);
+        $ten_francs = $ten_francs->expressionCast($ten_francs);
+        $bank = new Bank();
+        $bank->addRate("CHF", "USD", 2);
+        $sum = (new Sum($five_bucks, $ten_francs))->times(2);
+        $result = $bank->reduce($sum, "USD");
+        $this->assertEquals(Money::dollar(20), $result);
+    }
 }
