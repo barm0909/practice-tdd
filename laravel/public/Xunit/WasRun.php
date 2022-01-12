@@ -6,8 +6,8 @@ class WasRun
 {
     public $was_run;
 
-    public function __construct(bool $was_run)
+    public function __construct(?int $was_run)
     {
-        $this->was_run = false;
+        $this->was_run = $was_run;
     }
 }
