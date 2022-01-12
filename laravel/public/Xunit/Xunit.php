@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Xunit;
+namespace Public\Xunit;
+
+require_once 'WasRun.php';
 
 $test = new WasRun("testMethod");
 print($test->wasRun);
