@@ -13,6 +13,6 @@ class WasRun
 
     public function testMethod()
     {
-        // pass
+        $this->was_run = 1;
     }
 }
