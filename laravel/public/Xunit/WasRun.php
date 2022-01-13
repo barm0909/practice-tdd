@@ -4,7 +4,7 @@ namespace Public\Xunit;
 
 use ReflectionMethod;
 
-class WasRun
+class WasRun extends TestCase
 {
     public $was_run;
 
