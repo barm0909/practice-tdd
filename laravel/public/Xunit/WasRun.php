@@ -8,7 +8,7 @@ class WasRun
 
     public function __construct(string | int $was_run)
     {
-        $this->was_run = $was_run;
+        $this->was_run = "NONE";
     }
 
     public function testMethod()
