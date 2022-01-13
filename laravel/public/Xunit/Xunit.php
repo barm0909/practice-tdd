@@ -4,7 +4,7 @@ namespace Public\Xunit;
 
 require_once 'WasRun.php';
 
-$test = new WasRun(NULL);
-print($test->was_run);
+$test = new WasRun("NONE");
+echo $test->was_run;
 $test->testMethod();
 print($test->was_run);
