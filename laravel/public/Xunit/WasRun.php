@@ -14,12 +14,6 @@ class WasRun extends TestCase
         parent::__construct($name);
     }
 
-    public function run()
-    {
-        $method = $this->name;
-        (new ReflectionMethod($this))->invoke($method);
-    }
-
     public function testMethod()
     {
         $this->was_run = 1;
