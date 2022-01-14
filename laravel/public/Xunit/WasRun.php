@@ -11,7 +11,7 @@ class WasRun extends TestCase
     public function __construct(string | int $was_run, $name)
     {
         $this->was_run = "NONE";
-        $this->name = $name;
+        parent::__construct($name);
     }
 
     public function run()

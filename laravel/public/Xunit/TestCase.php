@@ -4,5 +4,8 @@ namespace Public\Xunit;
 
 class TestCase
 {
-    // pass
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 }
