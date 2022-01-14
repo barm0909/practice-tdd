@@ -6,6 +6,8 @@ use ReflectionMethod;
 
 class TestCase
 {
+    public $name;
+
     public function __construct($name)
     {
         $this->name = $name;
@@ -13,7 +15,6 @@ class TestCase
 
     public function run()
     {
-        $method = $this->name;
-        (new ReflectionMethod($this))->invoke($method);
+        call_user_func([$this, $this->name]);
     }
 }
