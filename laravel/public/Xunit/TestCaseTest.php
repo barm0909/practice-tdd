@@ -7,19 +7,21 @@ require_once "WasRun.php";
 
 class TestCaseTest extends TestCase
 {
+    public function setUp()
+    {
+        $this->test = new WasRun("TestMethod");
+    }
+
     public function testRunning()
     {
-        $test = new WasRun("TestMethod");
-        assert(!$test->was_run);
-        $test->run();
-        assert($test->was_run);
+        $this->test->run();
+        assert($this->test->was_run);
     }
 
     public function testSetUp()
     {
-        $test = new WasRun("TestMethod");
-        $test->run();
-        assert($test->wasSetUp);
+        $this->test->run();
+        assert($this->test->wasSetUp);
     }
 }
 
