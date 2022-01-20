@@ -16,9 +16,15 @@ class TestCase
         return null;
     }
 
+    public  function tearDown()
+    {
+        return null;
+    }
+
     public function run()
     {
         $this->setUp();
         call_user_func([$this, $this->name]);
+        $this->tearDown();
     }
 }
