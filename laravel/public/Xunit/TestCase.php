@@ -2,6 +2,8 @@
 
 namespace Public\Xunit;
 
+require_once "TestResult.php";
+
 class TestCase
 {
     public $name;
@@ -26,5 +28,6 @@ class TestCase
         $this->setUp();
         call_user_func([$this, $this->name]);
         $this->tearDown();
+        return new TesrResult();
     }
 }
