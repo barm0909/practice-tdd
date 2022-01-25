@@ -8,7 +8,12 @@ class TesrResult
 
     public function __construct()
     {
-        $this->run_count = 1;
+        $this->run_count = 0;
+    }
+
+    public function testStarted()
+    {
+        $this->run_count = $this->run_count + 1;
     }
 
     public function summary()
