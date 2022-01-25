@@ -20,7 +20,15 @@ class TestCaseTest extends TestCase
         $result = $test->run();
         assert("1 run, 0 failed" == $result->summary());
     }
+
+    public function testFailedResult()
+    {
+        $test = new WasRun("testBrokenMethod");
+        $result = $test->run();
+        assert("1 run, 1 failed" == $result->summary());
+    }
 }
 
 (new TestCaseTest("testTemplateMethod"))->run();
 (new TestCaseTest("testResult"))->run();
+(new TestCaseTest("testFailedResult"))->run();
