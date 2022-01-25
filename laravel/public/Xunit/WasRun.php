@@ -2,6 +2,8 @@
 
 namespace Public\Xunit;
 
+use Exception;
+
 require_once 'TestCase.php';
 
 class WasRun extends TestCase
@@ -17,6 +19,11 @@ class WasRun extends TestCase
     public function testMethod()
     {
         $this->log = $this->log . "TestMethod ";
+    }
+
+    public function testBrokenMethod()
+    {
+        throw new Exception();
     }
 
     public function tearDown()
