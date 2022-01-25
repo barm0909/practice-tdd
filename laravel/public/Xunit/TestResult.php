@@ -25,6 +25,6 @@ class TestResult
 
     public function summary()
     {
-        return "$this->run_count run, 0 failed";
+        return "$this->run_count run, $this->error_count failed";
     }
 }
