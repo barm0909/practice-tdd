@@ -2,7 +2,7 @@
 
 namespace Public\Xunit;
 
-class TesrResult
+class TestResult
 {
     public $run_count;
 
