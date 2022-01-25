@@ -25,7 +25,7 @@ class TestCase
 
     public function run()
     {
-        $result = new TesrResult();
+        $result = new TestResult();
         $result->testStarted();
         $this->setUp();
         call_user_func([$this, $this->name]);
