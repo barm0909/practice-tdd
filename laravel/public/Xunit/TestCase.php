@@ -28,7 +28,11 @@ class TestCase
         $result = new TestResult();
         $result->testStarted();
         $this->setUp();
-        call_user_func([$this, $this->name]);
+        try {
+            call_user_func([$this, $this->name]);
+        } catch (\Throwable $th) {
+            $result->testFailed();
+        }
         $this->tearDown();
         return $result;
     }
