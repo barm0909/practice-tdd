@@ -43,7 +43,9 @@ class TestCaseTest extends TestCase
         $suite = new TestSuite();
         $suite->add(new WasRun("testMethod"));
         $suite->add(new WasRun("testBrokenMethod"));
-        $result = $suite->run();
+        $result = new TestResult();
+        $suite->run();
+        assert("2 run, 1 failed" == $result->summary());
     }
 }
 
