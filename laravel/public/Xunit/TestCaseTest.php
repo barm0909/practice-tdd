@@ -38,7 +38,7 @@ class TestCaseTest extends TestCase
     }
 }
 
-(new TestCaseTest("testTemplateMethod"))->run();
-(new TestCaseTest("testResult"))->run();
-// (new TestCaseTest("testFailedResult"))->run();
-(new TestCaseTest("testFailedResultFormatting"))->run();
+print (new TestCaseTest("testTemplateMethod"))->run()->summary();
+print (new TestCaseTest("testResult"))->run()->summary();
+print (new TestCaseTest("testFailedResult"))->run()->summary();
+print (new TestCaseTest("testFailedResultFormatting"))->run()->summary();
