@@ -5,6 +5,7 @@ namespace Public\Xunit;
 require_once "TestCase.php";
 require_once "WasRun.php";
 require_once "TestResult.php";
+require_once "TestSuite.php";
 
 class TestCaseTest extends TestCase
 {
@@ -36,9 +37,18 @@ class TestCaseTest extends TestCase
         $result->testFailed();
         assert("1 run, 1 failed" == $result->summary());
     }
+
+    public function testSuite()
+    {
+        $suite = new TestSuite();
+        $suite->add(new WasRun("testMethod"));
+        $suite->add(new WasRun("testBrokenMethod"));
+        $result = $suite->run();
+    }
 }
 
 print (new TestCaseTest("testTemplateMethod"))->run()->summary();
 print (new TestCaseTest("testResult"))->run()->summary();
 print (new TestCaseTest("testFailedResult"))->run()->summary();
 print (new TestCaseTest("testFailedResultFormatting"))->run()->summary();
+print (new TestCaseTest("testSuite"))->run()->summary();
