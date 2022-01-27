@@ -12,21 +12,23 @@ class TestCaseTest extends TestCase
     public function testTemplateMethod()
     {
         $test = new WasRun("TestMethod");
-        $test->run();
+        $test->run(new TestResult());
         assert("setUp TestMethod tearDown " == $test->log);
     }
 
     public function testResult()
     {
         $test = new WasRun("TestMethod");
-        $result = $test->run();
+        $result = new TestResult();
+        $test->run($result);
         assert("1 run, 0 failed" == $result->summary());
     }
 
     public function testFailedResult()
     {
         $test = new WasRun("testBrokenMethod");
-        $result = $test->run();
+        $result = new TestResult();
+        $test->run($result);
         assert("1 run, 1 failed" == $result->summary());
     }
 
@@ -44,13 +46,17 @@ class TestCaseTest extends TestCase
         $suite->add(new WasRun("testMethod"));
         $suite->add(new WasRun("testBrokenMethod"));
         $result = new TestResult();
-        $suite->run();
+        $suite->run($result);
         assert("2 run, 1 failed" == $result->summary());
     }
 }
 
-print (new TestCaseTest("testTemplateMethod"))->run()->summary();
-print (new TestCaseTest("testResult"))->run()->summary();
-print (new TestCaseTest("testFailedResult"))->run()->summary();
-print (new TestCaseTest("testFailedResultFormatting"))->run()->summary();
-print (new TestCaseTest("testSuite"))->run()->summary();
+$suite = new TestSuite();
+$suite->add((new TestCaseTest("testTemplateMethod")));
+$suite->add((new TestCaseTest("testResult")));
+$suite->add((new TestCaseTest("testFailedResult")));
+$suite->add((new TestCaseTest("testFailedResultFormatting")));
+$suite->add((new TestCaseTest("testSuite")));
+$result = new TestResult();
+$suite->run($result);
+print $result->summary();

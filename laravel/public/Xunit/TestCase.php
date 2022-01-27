@@ -23,9 +23,8 @@ class TestCase
         return null;
     }
 
-    public function run()
+    public function run($result)
     {
-        $result = new TestResult();
         $result->testStarted();
         $this->setUp();
         try {
@@ -34,6 +33,5 @@ class TestCase
             $result->testFailed();
         }
         $this->tearDown();
-        return $result;
     }
 }
