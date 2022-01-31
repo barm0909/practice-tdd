@@ -9,36 +9,39 @@ require_once "TestSuite.php";
 
 class TestCaseTest extends TestCase
 {
+    private $result;
+
+    public function setUp()
+    {
+        $this->result = new TestResult();
+    }
+
     public function testTemplateMethod()
     {
         $test = new WasRun("TestMethod");
-        $result = new TestResult();
-        $test->run($result);
+        $test->run($this->result);
         assert("setUp TestMethod tearDown " == $test->log);
     }
 
     public function testResult()
     {
         $test = new WasRun("TestMethod");
-        $result = new TestResult();
-        $test->run($result);
-        assert("1 run, 0 failed" == $result->summary());
+        $test->run($this->result);
+        assert("1 run, 0 failed" == $this->result->summary());
     }
 
     public function testFailedResult()
     {
         $test = new WasRun("testBrokenMethod");
-        $result = new TestResult();
-        $test->run($result);
-        assert("1 run, 1 failed" == $result->summary());
+        $test->run($this->result);
+        assert("1 run, 1 failed" == $this->result->summary());
     }
 
     public function testFailedResultFormatting()
     {
-        $result = new TestResult();
-        $result->testStarted();
-        $result->testFailed();
-        assert("1 run, 1 failed" == $result->summary());
+        $this->result->testStarted();
+        $this->result->testFailed();
+        assert("1 run, 1 failed" == $this->result->summary());
     }
 
     public function testSuite()
@@ -46,9 +49,8 @@ class TestCaseTest extends TestCase
         $suite = new TestSuite();
         $suite->add(new WasRun("testMethod"));
         $suite->add(new WasRun("testBrokenMethod"));
-        $result = new TestResult();
-        $suite->run($result);
-        assert("2 run, 1 failed" == $result->summary());
+        $suite->run($this->result);
+        assert("2 run, 1 failed" == $this->result->summary());
     }
 }
 
