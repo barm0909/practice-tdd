@@ -12,7 +12,8 @@ class TestCaseTest extends TestCase
     public function testTemplateMethod()
     {
         $test = new WasRun("TestMethod");
-        $test->run(new TestResult());
+        $result = new TestResult();
+        $test->run($result);
         assert("setUp TestMethod tearDown " == $test->log);
     }
 
